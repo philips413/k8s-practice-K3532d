@@ -1,0 +1,12 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: hello-world
+build:
+  artifacts:
+    - image: webapp
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - web-deployment.yaml
