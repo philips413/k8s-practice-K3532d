@@ -1,0 +1,18 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: webkube
+build:
+  artifacts:
+    - image: webkube
+      docker:
+        dockerfile: Dockerfile
+    - image: webkube-inc
+      docker:
+        dockerfile: Dockerfile-inc
+manifests:
+  rawYaml:
+    - web-deployment.yaml
+    - web-inc-deployment.yaml
+    - redis-deployment.yaml
+    - web-ingress.yaml
